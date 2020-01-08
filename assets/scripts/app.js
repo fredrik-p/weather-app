@@ -2,7 +2,7 @@
  * ☔️.
  *
  */
-//const time = document.querySelector('img.time');
+
 //const icon = document.querySelector('.icon img');
 
 const renderAlert = (severity, msg) => {
@@ -41,13 +41,18 @@ const renderCurrentWeather = data => {
 
     document.querySelector('#forecast').innerHTML = template;
 
-    /*let timeSrc = null;
-    if (data.sys.sunrise) {
-        timeSrc = 'images/day.svg';
+    const time = document.querySelector('img.time');
+
+    var ts = Math.round((new Date()).getTime() / 1000);
+
+    let timeSrc = null;
+
+    if (ts > data.sys.sunrise && ts < data.sys.sunset) {
+        timeSrc = 'assets/images/day.svg';
     } else {
-        timeSrc = 'images/night.svg'
+        timeSrc = 'assets/images/night.svg';
     }
-    time.setAttribute('src', timeSrc);*/
+    time.setAttribute('src', timeSrc);
 };
 
 
